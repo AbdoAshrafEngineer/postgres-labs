@@ -1,0 +1,933 @@
+abdullah@abdullah-Vostro-5468:~$ createdb my_database
+createdb: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "abdullah" does not exist
+abdullah@abdullah-Vostro-5468:~$ sudo -u postgres psql
+psql (14.17 (Ubuntu 14.17-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# create database my_database;
+CREATE DATABASE
+postgres=# \l
+                                   List of databases
+    Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-------------+----------+----------+-------------+-------------+-----------------------
+ Musiciana   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ RealState   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ World       | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hospital    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ my_database | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ mydatabase  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ pythontrack | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ test        | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(11 rows)
+
+postgres=# cleae
+postgres-# clear
+postgres-# ;
+ERROR:  syntax error at or near "cleae"
+LINE 1: cleae
+        ^
+postgres=# create table colm1(
+postgres(# ;
+postgres(# \q
+abdullah@abdullah-Vostro-5468:~$ sudo -u postgres psql
+psql (14.17 (Ubuntu 14.17-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# drop database my_database
+postgres-# ;
+DROP DATABASE
+postgres=# \l
+                                   List of databases
+    Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-------------+----------+----------+-------------+-------------+-----------------------
+ Musiciana   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ RealState   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ World       | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hospital    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ mydatabase  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ pythontrack | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ test        | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(10 rows)
+
+postgres=# create database school;
+CREATE DATABASE
+postgres=# \l
+                                   List of databases
+    Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-------------+----------+----------+-------------+-------------+-----------------------
+ Musiciana   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ RealState   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ World       | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hospital    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ mydatabase  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ pythontrack | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ school      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ test        | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(11 rows)
+
+postgres=# create table student (
+postgres(# id serial primary key,
+postgres(# name varchar(50) not null
+postgres(# );
+CREATE TABLE
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | student         | table | postgres
+(7 rows)
+
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | student         | table | postgres
+(7 rows)
+
+postgres=# drop table student
+postgres-# ;
+DROP TABLE
+postgres=# \d
+               List of relations
+ Schema |      Name       |   Type   |  Owner   
+--------+-----------------+----------+----------
+ public | City            | table    | postgres
+ public | Country         | table    | postgres
+ public | CountryLanguage | table    | postgres
+ public | city            | table    | postgres
+ public | city_id_seq     | sequence | postgres
+ public | country         | table    | postgres
+ public | countrylanguage | table    | postgres
+(7 rows)
+
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+(6 rows)
+
+postgres=# \d
+               List of relations
+ Schema |      Name       |   Type   |  Owner   
+--------+-----------------+----------+----------
+ public | City            | table    | postgres
+ public | Country         | table    | postgres
+ public | CountryLanguage | table    | postgres
+ public | city            | table    | postgres
+ public | city_id_seq     | sequence | postgres
+ public | country         | table    | postgres
+ public | countrylanguage | table    | postgres
+(7 rows)
+
+postgres=# create table student (
+postgres(# id serial primary key,
+postgres(# email  email VARCHAR(100) UNIQUE,
+postgres(# email  email VARCHAR(100) UNIQUE,^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]    CONSTRAINT valid_email CHECK (email ~* '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
+postgres(# address varchar(50) 
+postgres(# a
+postgres(# asda;
+postgres(# ;
+postgres(# ;
+postgres(# q
+postgres(# /q
+postgres(# \q
+abdullah@abdullah-Vostro-5468:~$ sudo -u postgres psql
+[sudo] password for abdullah:          
+psql (14.17 (Ubuntu 14.17-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# psql
+postgres-# asd
+postgres-# create
+postgres-# ;
+ERROR:  syntax error at or near "psql"
+LINE 1: psql
+        ^
+postgres=# create table (
+postgres(# asd
+postgres(# ;
+postgres(# );
+ERROR:  syntax error at or near "("
+LINE 1: create table (
+                     ^
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+(6 rows)
+
+postgres=# \dt student
+Did not find any relation named "student".
+postgres=# \d
+               List of relations
+ Schema |      Name       |   Type   |  Owner   
+--------+-----------------+----------+----------
+ public | City            | table    | postgres
+ public | Country         | table    | postgres
+ public | CountryLanguage | table    | postgres
+ public | city            | table    | postgres
+ public | city_id_seq     | sequence | postgres
+ public | country         | table    | postgres
+ public | countrylanguage | table    | postgres
+(7 rows)
+
+postgres=# create table student (
+postgres(# id serial primary key,
+postgres(# e_name varchar(50) not null,
+postgres(# email varchar(100),
+postgres(# address varchar(100),
+postgres(# asdasd);
+ERROR:  syntax error at or near ")"
+LINE 6: asdasd);
+              ^
+postgres=# create table track (
+postgres(# id serial primary key,
+postgres(# track_name varchar(50) not null);
+CREATE TABLE
+postgres=# create table subject (
+postgres(# id serial primary key,
+postgres(# sub_name varchar(50) not null,
+postgres(# max_score int not null);
+CREATE TABLE
+postgres=# create table exam(
+postgres(# id serial primary,
+postgres(# date date not null,
+postgres(# asd);
+ERROR:  syntax error at or near ","
+LINE 2: id serial primary,
+                         ^
+postgres=# create table exam(
+id serial primary,
+date date not null);
+ERROR:  syntax error at or near ","
+LINE 2: id serial primary,
+                         ^
+postgres=# create table exam(
+id serial primary,
+date date not null);
+ERROR:  syntax error at or near ","
+LINE 2: id serial primary,
+                         ^
+postgres=# create table exam (
+postgres(# id serial primary key 
+postgres(# date date not null);
+ERROR:  syntax error at or near "date"
+LINE 3: date date not null);
+        ^
+postgres=# create table exam (
+id serial primary key 
+date DATE not null);
+ERROR:  syntax error at or near "date"
+LINE 3: date DATE not null);
+        ^
+postgres=# create table exam (
+id serial primary key 
+date date not null
+postgres(# );
+ERROR:  syntax error at or near "date"
+LINE 3: date date not null
+        ^
+postgres=# create table exam (
+id serial primary key 
+exam_date DATE not null); 
+ERROR:  syntax error at or near "exam_date"
+LINE 3: exam_date DATE not null);
+        ^
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | subject         | table | postgres
+ public | track           | table | postgres
+(8 rows)
+
+postgres=# create table exam (
+postgres(# id serial primary key,
+postgres(# date date not null);
+CREATE TABLE
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | exam            | table | postgres
+ public | subject         | table | postgres
+ public | track           | table | postgres
+(9 rows)
+
+postgres=# create table student
+postgres-# asd;
+ERROR:  syntax error at or near "asd"
+LINE 2: asd;
+        ^
+postgres=# create table student (
+postgres(# id serial primary key,
+postgres(# e_name varchar(50) not null,
+postgres(# email varchar(70),
+postgres(# address varchar(50),
+postgres(# track_id int references track(id));
+CREATE TABLE
+postgres=# create table grades(
+postgres(# stu_id int reference student(id), 
+postgres(# sub_id int reference subject(id),
+postgres(# exam_id int reference exam(id),
+postgres(# grade int not null,
+postgres(# primary key (stu_id,sub_id,exam_id));
+ERROR:  syntax error at or near "reference"
+LINE 2: stu_id int reference student(id), 
+                   ^
+postgres=# create table grades (
+postgres(# stu_id int references student(id),
+postgres(# sub_id int references subject(id),
+postgres(# exam_id int references exam(id),
+postgres(# grade int not null,
+postgres(# primary key(stu_id, sub_id, exam_id));
+CREATE TABLE
+postgres=# create table stu_sub (
+postgres(# stu_id int student(id),
+postgres(# sub_id int subject(id),
+postgres(# primary key (stu_id,sub_id));
+ERROR:  syntax error at or near "student"
+LINE 2: stu_id int student(id),
+                   ^
+postgres=# create table stu_sub (
+postgres(# stu_id int references student(id),
+postgres(# sub_id int references subject(id),
+postgres(# primary key(stu_id,sub_id));
+CREATE TABLE
+postgres=# create track_sub (
+postgres(# track_id int references track(id),
+postgres(# sub_id int references subject(id),
+postgres(# primary key (track_id, sub_id));
+ERROR:  syntax error at or near "track_sub"
+LINE 1: create track_sub (
+               ^
+postgres=# create table track_sub (
+postgres(# track_id int references track(id),
+postgres(# sub_id int references subject(id),
+postgres(# primary key (track_id, sub_id));
+CREATE TABLE
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | exam            | table | postgres
+ public | grades          | table | postgres
+ public | stu_sub         | table | postgres
+ public | student         | table | postgres
+ public | subject         | table | postgres
+ public | track           | table | postgres
+ public | track_sub       | table | postgres
+(13 rows)
+
+postgres=# insert into exam(date)
+postgres-# values('2025-04-29')
+postgres-# ;
+INSERT 0 1
+postgres=# insert into exam(date)
+values('2025-04-30');
+INSERT 0 1
+postgres=# insert into exam(date)
+values('2025-05-01');
+INSERT 0 1
+postgres=# insert into track(track_name)
+postgres-# values('apache2')
+postgres-# insert into track(track_name)
+postgres-# values('postgresql')
+postgres-# insert into track(track_name)
+postgres-# values('os');
+ERROR:  syntax error at or near "insert"
+LINE 3: insert into track(track_name)
+        ^
+postgres=# insert into track(track_name)
+values('apache2');
+INSERT 0 1
+postgres=# insert into track(track_name)
+values('db');
+INSERT 0 1
+postgres=# insert into track(track_name)
+values('os');
+INSERT 0 1
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner   
+--------+-----------------+-------+----------
+ public | City            | table | postgres
+ public | Country         | table | postgres
+ public | CountryLanguage | table | postgres
+ public | city            | table | postgres
+ public | country         | table | postgres
+ public | countrylanguage | table | postgres
+ public | exam            | table | postgres
+ public | grades          | table | postgres
+ public | stu_sub         | table | postgres
+ public | student         | table | postgres
+ public | subject         | table | postgres
+ public | track           | table | postgres
+ public | track_sub       | table | postgres
+(13 rows)
+
+postgres=# \d 'track'
+postgres=# \dt 'track'
+         List of relations
+ Schema | Name  | Type  |  Owner   
+--------+-------+-------+----------
+ public | track | table | postgres
+(1 row)
+
+postgres=# select * from track
+postgres-# ;
+ id | track_name 
+----+------------
+  1 | apache2
+  2 | db
+  3 | os
+(3 rows)
+
+postgres=# insert into student(e_name, email, address, track_id)
+postgres-# values('abdelrahman', 'aaabod@gmail.com', 'assuit', '1');
+INSERT 0 1
+postgres=# truncate table track
+postgres-# ;
+ERROR:  cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "student" references "track".
+HINT:  Truncate table "student" at the same time, or use TRUNCATE ... CASCADE.
+postgres=# truncate table student
+postgres-# ;
+ERROR:  cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "grades" references "student".
+HINT:  Truncate table "grades" at the same time, or use TRUNCATE ... CASCADE.
+postgres=# truncate table track cascade;
+NOTICE:  truncate cascades to table "student"
+NOTICE:  truncate cascades to table "track_sub"
+NOTICE:  truncate cascades to table "grades"
+NOTICE:  truncate cascades to table "stu_sub"
+TRUNCATE TABLE
+postgres=# select * from exam
+postgres-# ;
+ id |    date    
+----+------------
+  1 | 2025-04-29
+  2 | 2025-04-30
+  3 | 2025-05-01
+(3 rows)
+
+postgres=# select from track;
+--
+(0 rows)
+
+postgres=# insert into track(track_name)
+postgres-# values(python);
+ERROR:  column "python" does not exist
+LINE 2: values(python);
+               ^
+postgres=# insert into track(track_name)
+values('python');
+INSERT 0 1
+postgres=# insert into track(track_name)
+values('php');
+INSERT 0 1
+postgres=# insert into track(track_name)
+values('ux_ui');
+INSERT 0 1
+postgres=# select * from student;
+ id | e_name | email | address | track_id 
+----+--------+-------+---------+----------
+(0 rows)
+
+postgres=# insert into student(e_name, email, address, track_id)
+postgres-# values('Abdelrahman', 'aaabod199950@gmail.com', 'assuit', 1);
+ERROR:  insert or update on table "student" violates foreign key constraint "student_track_id_fkey"
+DETAIL:  Key (track_id)=(1) is not present in table "track".
+postgres=# select * from track;
+ id | track_name 
+----+------------
+  4 | python
+  5 | php
+  6 | ux_ui
+(3 rows)
+
+postgres=# truncate table track cascade;
+NOTICE:  truncate cascades to table "student"
+NOTICE:  truncate cascades to table "track_sub"
+NOTICE:  truncate cascades to table "grades"
+NOTICE:  truncate cascades to table "stu_sub"
+TRUNCATE TABLE
+postgres=# select * from track;
+ id | track_name 
+----+------------
+(0 rows)
+
+postgres=# insert into track(track_name)
+values('python');
+INSERT 0 1
+postgres=# select * from track;
+ id | track_name 
+----+------------
+  7 | python
+(1 row)
+
+postgres=# ALTER SEQUENCE track RESTART WITH 1;
+ERROR:  "track" is not a sequence
+postgres=# truncate table track restart identity cascade;
+NOTICE:  truncate cascades to table "student"
+NOTICE:  truncate cascades to table "track_sub"
+NOTICE:  truncate cascades to table "grades"
+NOTICE:  truncate cascades to table "stu_sub"
+TRUNCATE TABLE
+postgres=# truncate table track restart identity cascade;
+NOTICE:  truncate cascades to table "student"
+NOTICE:  truncate cascades to table "track_sub"
+NOTICE:  truncate cascades to table "grades"
+NOTICE:  truncate cascades to table "stu_sub"
+TRUNCATE TABLE
+postgres=# select * from track;
+ id | track_name 
+----+------------
+(0 rows)
+
+postgres=# insert into track(track_name)
+values('python');
+INSERT 0 1
+postgres=# select * from track;
+ id | track_name 
+----+------------
+  1 | python
+(1 row)
+
+postgres=# insert into track(track_name)
+postgres-# values('php');
+INSERT 0 1
+postgres=# insert into track(track_name)
+values('ui_ux');
+INSERT 0 1
+postgres=# insert into student(e_name, email, address, track_id)
+values('Abdelrahman', 'aaabod199950@gmail.com', 'assuit', '1');
+INSERT 0 1
+postgres=# insert into student(e_name, address, track_id)
+values('Ahmed', 'assuit', '2');
+INSERT 0 1
+postgres=# insert into student(e_name, address, track_id)
+values('abdullah', 'cairo', '3');
+INSERT 0 1
+postgres=# insert into subject(sub_name, max_score)
+postgres-# values('html', '100');
+INSERT 0 1
+postgres=# insert into subject(sub_name, max_score)
+values('css', '100');
+INSERT 0 1
+postgres=# insert into subject(sub_name, max_score)
+values('js', '100');
+INSERT 0 1
+postgres=# select * from subject;
+ id | sub_name | max_score 
+----+----------+-----------
+  1 | html     |       100
+  2 | css      |       100
+  3 | js       |       100
+(3 rows)
+
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id 
+----+-------------+------------------------+---------+----------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1
+  2 | Ahmed       |                        | assuit  |        2
+  3 | abdullah    |                        | cairo   |        3
+(3 rows)
+
+postgres=# select * from track;
+ id | track_name 
+----+------------
+  1 | python
+  2 | php
+  3 | ui_ux
+(3 rows)
+
+postgres=# select * from subject;
+ id | sub_name | max_score 
+----+----------+-----------
+  1 | html     |       100
+  2 | css      |       100
+  3 | js       |       100
+(3 rows)
+
+postgres=# select * from exam;
+ id |    date    
+----+------------
+  1 | 2025-04-29
+  2 | 2025-04-30
+  3 | 2025-05-01
+(3 rows)
+
+postgres=# select * from grades;
+ stu_id | sub_id | exam_id | grade 
+--------+--------+---------+-------
+(0 rows)
+
+postgres=# insert into grades(stu_id, sub_id, exam_id, grade)
+postgres-# values('1','1','1','90');
+INSERT 0 1
+postgres=# insert into grades(stu_id, sub_id, exam_id, grade)
+values('1','2','2','85');
+INSERT 0 1
+postgres=# insert into grades(stu_id, sub_id, exam_id, grade)
+values('1','3','3','80');
+INSERT 0 1
+postgres=# select * from grades;
+ stu_id | sub_id | exam_id | grade 
+--------+--------+---------+-------
+      1 |      1 |       1 |    90
+      1 |      2 |       2 |    85
+      1 |      3 |       3 |    80
+(3 rows)
+
+postgres=# insert into stu_sub(stu_id, sub_id)
+postgres-# values(1,1);
+INSERT 0 1
+postgres=# insert into stu_sub(stu_id, sub_id)
+values(1,2);
+INSERT 0 1
+postgres=# insert into stu_sub(stu_id, sub_id)
+values(1,3);
+INSERT 0 1
+postgres=# insert_into track_sub(track_id, sub_id)
+postgres-# values('1', '1');
+ERROR:  syntax error at or near "insert_into"
+LINE 1: insert_into track_sub(track_id, sub_id)
+        ^
+postgres=# insert into track_sub(track_id, sub_id)
+values('1', '1');
+INSERT 0 1
+postgres=# insert into track_sub(track_id, sub_id)
+values('1', '2');
+INSERT 0 1
+postgres=# insert into track_sub(track_id, sub_id)
+values('1', '3');
+INSERT 0 1
+postgres=# select * from track_sub
+postgres-# ;
+ track_id | sub_id 
+----------+--------
+        1 |      1
+        1 |      2
+        1 |      3
+(3 rows)
+
+postgres=# alter table student
+postgres-# add column birth_date date;
+ALTER TABLE
+postgres=# select * from student
+postgres-# ;
+ id |   e_name    |         email          | address | track_id | birth_date 
+----+-------------+------------------------+---------+----------+------------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 
+  2 | Ahmed       |                        | assuit  |        2 | 
+  3 | abdullah    |                        | cairo   |        3 | 
+(3 rows)
+
+postgres=# update student
+postgres-# set birth_date = '1999-04-16'
+postgres-# where id = 1;
+UPDATE 1
+postgres=# select * from student
+;
+ id |   e_name    |         email          | address | track_id | birth_date 
+----+-------------+------------------------+---------+----------+------------
+  2 | Ahmed       |                        | assuit  |        2 | 
+  3 | abdullah    |                        | cairo   |        3 | 
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16
+(3 rows)
+
+postgres=# update student
+set birth_date = '2000-01-01'
+where id = 2;
+UPDATE 1
+postgres=# select * from student
+;
+ id |   e_name    |         email          | address | track_id | birth_date 
+----+-------------+------------------------+---------+----------+------------
+  3 | abdullah    |                        | cairo   |        3 | 
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01
+(3 rows)
+
+postgres=# update student
+set birth_date = '2001-10-01'
+where id = 3;
+UPDATE 1
+postgres=# select * from student
+;
+ id |   e_name    |         email          | address | track_id | birth_date 
+----+-------------+------------------------+---------+----------+------------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01
+(3 rows)
+
+postgres=# create type gender as enum ('Male', 'Female');
+CREATE TYPE
+postgres=# \dT
+      List of data types
+ Schema |  Name  | Description 
+--------+--------+-------------
+ public | gender | 
+(1 row)
+
+postgres=# alter table person
+postgres-# add column gender gender;
+ERROR:  relation "person" does not exist
+postgres=# alter table student
+add column gender gender;
+ALTER TABLE
+postgres=# select * from student;
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | 
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | 
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01 | 
+(3 rows)
+
+postgres=# update student 
+postgres-# set gender = 'Male'
+postgres-# where id = 1;
+UPDATE 1
+postgres=# update student 
+set gender = 'Male'
+where id = 2;
+UPDATE 1
+postgres=# update student 
+set gender = 'Male'
+where id = 3;
+UPDATE 1
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | Male
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | Male
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01 | Male
+(3 rows)
+
+postgres=# insert into student 
+postgres-# (e_name, address, track_id, birth_date, gender)
+postgres-# values('maruim', 'minya', '1', '2013-07-08','Female');
+INSERT 0 1
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | Male
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | Male
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01 | Male
+  4 | maruim      |                        | minya   |        1 | 2013-07-08 | Female
+(4 rows)
+
+postgres=# insert into student 
+(e_name, address, track_id, birth_date, gender)
+values('orabi', 'aswan', '1', '1991-10-01','Male');
+INSERT 0 1
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | Male
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | Male
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01 | Male
+  4 | maruim      |                        | minya   |        1 | 2013-07-08 | Female
+  5 | orabi       |                        | aswan   |        1 | 1991-10-01 | Male
+(5 rows)
+
+postgres=# insert into student 
+(e_name, address, track_id, birth_date, gender)
+values('majed', 'giza', '1', '1991-09-30','Male');
+INSERT 0 1
+postgres=# select * from student;
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | Male
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | Male
+  3 | abdullah    |                        | cairo   |        3 | 2001-10-01 | Male
+  4 | maruim      |                        | minya   |        1 | 2013-07-08 | Female
+  5 | orabi       |                        | aswan   |        1 | 1991-10-01 | Male
+  6 | majed       |                        | giza    |        1 | 1991-09-30 | Male
+(6 rows)
+
+postgres=# select * from student where birth_date < '1991-10-1';
+ id | e_name | email | address | track_id | birth_date | gender 
+----+--------+-------+---------+----------+------------+--------
+  6 | majed  |       | giza    |        1 | 1991-09-30 | Male
+(1 row)
+
+postgres=# select * from student
+postgres-# where e_name like 'A%';
+ id |   e_name    |         email          | address | track_id | birth_date | gender 
+----+-------------+------------------------+---------+----------+------------+--------
+  1 | Abdelrahman | aaabod199950@gmail.com | assuit  |        1 | 1999-04-16 | Male
+  2 | Ahmed       |                        | assuit  |        2 | 2000-01-01 | Male
+(2 rows)
+
+postgres=# select * from subject
+postgres-# ;
+ id | sub_name | max_score 
+----+----------+-----------
+  1 | html     |       100
+  2 | css      |       100
+  3 | js       |       100
+(3 rows)
+
+postgres=# select * from subject                                
+sort by max_score;
+ERROR:  syntax error at or near "by"
+LINE 2: sort by max_score;
+             ^
+postgres=# select * from subject
+sort max_score;
+ERROR:  syntax error at or near "max_score"
+LINE 2: sort max_score;
+             ^
+postgres=# select * from subject
+oreder by  max_score;
+ERROR:  syntax error at or near "by"
+LINE 2: oreder by  max_score;
+               ^
+postgres=# select * from subject
+order by  max_score;
+ id | sub_name | max_score 
+----+----------+-----------
+  1 | html     |       100
+  2 | css      |       100
+  3 | js       |       100
+(3 rows)
+
+postgres=# select max(max_score) as higheset_score
+postgres-# from subject;
+ higheset_score 
+----------------
+            100
+(1 row)
+
+postgres=# select count(id) from student 
+postgres-# where name = 'Mohammed';
+ERROR:  column "name" does not exist
+LINE 2: where name = 'Mohammed';
+              ^
+HINT:  Perhaps you meant to reference the column "student.e_name".
+postgres=# select count(id) from student 
+where e_name = 'Mohammed';
+ count 
+-------
+     0
+(1 row)
+
+postgres=# select gender, count(id)
+postgres-# from student
+postgres-# group by gender;
+ gender | count 
+--------+-------
+ Female |     1
+ Male   |     5
+(2 rows)
+
+postgres=# select split_part(e_name, ' ', 1) as first_name,
+postgres-# count(id) as count
+postgres-# from student
+postgres-# group by first_name
+postgres-# having count(id) > 2;
+ first_name | count 
+------------+-------
+(0 rows)
+
+postgres=# select student.name, track.track_name 
+postgres-# from student 
+postgres-# inner join track on 
+postgres-# track.id = student.track_id;
+ERROR:  column student.name does not exist
+LINE 1: select student.name, track.track_name 
+               ^
+HINT:  Perhaps you meant to reference the column "student.e_name".
+postgres=# select student.e_name, track.track_name 
+from student 
+inner join track on 
+track.id = student.track_id;
+   e_name    | track_name 
+-------------+------------
+ majed       | python
+ orabi       | python
+ maruim      | python
+ Abdelrahman | python
+ Ahmed       | php
+ abdullah    | ui_ux
+(6 rows)
+
+postgres=# select student.e_name, track.track_name 
+from student 
+inner join track on 
+track.id = student.track_id
+postgres-# where track.track_name != 'OS'
+postgres-# ;
+   e_name    | track_name 
+-------------+------------
+ majed       | python
+ orabi       | python
+ maruim      | python
+ Abdelrahman | python
+ Ahmed       | php
+ abdullah    | ui_ux
+(6 rows)
+
+postgres=# 
+
